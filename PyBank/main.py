@@ -3,7 +3,7 @@ import csv
 import os
 
 #read budget.data.csv file
-budget_data = os.path.join("..", "Resources", "budget_data.csv")
+budget_data = os.path.join("Resources", "budget_data.csv")
 
 #number of months
 total_months = 0
@@ -22,8 +22,7 @@ profit = []
 with open(budget_data) as csvfile:
     csvreader = csv.reader(csvfile, delimiter = ",")
     csv_header = next(csvreader)
-
-print(csvreader)
+    print(csvreader)
 
 
 
