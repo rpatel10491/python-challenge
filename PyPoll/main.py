@@ -38,24 +38,25 @@ with open(election_data) as csvfile:
 #calculate winner  
     winner = max(voter_dictionary.items(), key=lambda item: item[1])
 
-
+#print analysis
 print("Election Results ")
 print("----------------------------")
 print("Total Votes: " + str(length))
 print("----------------------------")
 for cand in voter_dictionary.items():
-      print((cand[0]) + ": " + (str(cand[1])) + " " + (str((cand[1]/length) * 100)))
+      print((cand[0]) + ": " + (str(round(cand[1]))) + " " + (str(round((cand[1]/length) * 100))))
 print("----------------------------")
 print("Winner: " + str(winner[0]))
 
-
+#write txt file
 f = open("election_data.txt", "w")
 f.write("Election Results \n")
 f.write("---------------------------- \n")
 f.write("Total Votes: " + str(length) + "\n")
 f.write("---------------------------- \n")
 for cand in voter_dictionary.items():
-    f.write((cand[0]) + ": " + (str(cand[1])) + " " + (str((cand[1]/length) * 100) + "\n"))
+    f.write((cand[0]) + ": " + (str(round(cand[1]))) + " votes " + (str(round((cand[1]/length) * 100))) + "%" + "\n")
+   # f.write((cand[0]) + ": " + (str(cand[1])) + " " + (str((cand[1]/length) * 100) + "\n"))
 f.write("---------------------------- \n")
 f.write("Winner: " + str(winner[0]) + "\n")
 f.close()
