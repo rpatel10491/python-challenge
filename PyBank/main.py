@@ -27,20 +27,42 @@ with open(budget_data) as csvfile:
     length = len(total_months)
     print(length)
 #total profit/loss
-    sum = (sum(total_revenue))
+    net_sum = (sum(total_revenue))
     revenue_changes = []
-    for i in range(len(total_revenue) - 1)
-#average of changes
-    average = sum/length
+    for i in range(len(total_revenue) - 1):
+        current_revenue = total_revenue[i]
+        next_revenue = total_revenue[i+1]
+        change_in_revenue = next_revenue - current_revenue
+        revenue_changes.append(change_in_revenue)
+    print(revenue_changes)
+    
+    average = sum(revenue_changes)/len(revenue_changes)
     print(average)
+    
 
 #maximum increase in profits
-    maximum = max(total_revenue)
+    maximum = max(revenue_changes)
+    print(maximum)
+
+#greatest decrease in profits
+    minimum = min(revenue_changes)
+    print(minimum)
 
 print("Financial Analysis")
 print("----------------------------")
 print("Total Months: ", length)
-print("Total: $", sum)
-print("Average Change: ", average)
-print("Greatest Increase in Profits: ")
-print("Greatest Decrease in Profits: ")
+print("Total: $", net_sum)
+print("Average Change: ", round(average, 2))
+print("Greatest Increase in Profits: ", maximum)
+print("Greatest Decrease in Profits: ", minimum)
+
+
+f = open("budget_data.txt", "w")
+f.write("Financial Analyis \n")
+f.write("---------------------------- \n")
+f.write("Total Months: " + str(length) + "\n")
+f.write("Total: $" + str(net_sum) + "\n")
+f.write("Average Change: " + str(round(average, 2)) + "\n")
+f.write("Greatest Increase in Profits: " + str(maximum) + "\n")
+f.write("Greatest Decrease in Profits: " + str(minimum) + "\n")
+f.close()
