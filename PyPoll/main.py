@@ -56,7 +56,6 @@ f.write("Total Votes: " + str(length) + "\n")
 f.write("---------------------------- \n")
 for cand in voter_dictionary.items():
     f.write((cand[0]) + ": " + (str(round(cand[1]))) + " votes " + (str(round((cand[1]/length) * 100))) + "%" + "\n")
-   # f.write((cand[0]) + ": " + (str(cand[1])) + " " + (str((cand[1]/length) * 100) + "\n"))
 f.write("---------------------------- \n")
 f.write("Winner: " + str(winner[0]) + "\n")
 f.close()
