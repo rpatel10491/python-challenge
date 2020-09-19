@@ -10,26 +10,26 @@ with open(election_data) as csvfile:
   #  print(csvreader)
     csv_header = next(csvreader)
     print(csv_header)
-
+# create variables 
     voter_id = []
     county = []
     candidate = []
-
+#create loop to read csv 
     for row in csvreader:
       voter_id.append(row[0])
       county.append(row[1])
       candidate.append(row[2])
-
+#create new variable for total votes
     length = len(voter_id)
     print(length)
-
+#create dictionary to count individual votes
     voter_dictionary = {}
     for name in candidate:
       if name not in voter_dictionary:
         voter_dictionary[name] = 1
       else:
         voter_dictionary[name] += 1
-    #print(voter_dictionary)
+    
 
     for cand in voter_dictionary.items():
       print(cand[0])
@@ -45,5 +45,5 @@ print("Total Votes: " + str(length))
 print("----------------------------")
 for cand in voter_dictionary.items():
       print((cand[0]) + ": " + (str(cand[1])) + " " + (str((cand[1]/length) * 100)))
-
+print("----------------------------")
 print("Winner: " + str(winner[0]))
