@@ -32,4 +32,18 @@ with open(election_data) as csvfile:
     #print(voter_dictionary)
 
     for cand in voter_dictionary.items():
-      print(cand)
+      print(cand[0])
+      print(str(cand[1]))
+      print(str((cand[1]/length) * 100))
+  
+    winner = max(voter_dictionary.items(), key=lambda item: item[1])
+
+
+print("Election Results ")
+print("----------------------------")
+print("Total Votes: " + str(length))
+print("----------------------------")
+for cand in voter_dictionary.items():
+      print((cand[0]) + ": " + (str(cand[1])) + " " + (str((cand[1]/length) * 100)))
+
+print("Winner: " + str(winner[0]))
