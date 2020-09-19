@@ -2,7 +2,7 @@ import csv
 import os
 
 #read election.data.csv file
-election_data = os.path.join("Resources", "budget_data.csv")
+election_data = os.path.join("Resources", "election_data.csv")
 
 #read CSV file and create csv reader
 with open(election_data) as csvfile:
@@ -11,8 +11,14 @@ with open(election_data) as csvfile:
     csv_header = next(csvreader)
     print(csv_header)
 
-#1 - count length of the list
-#2 - https://stackoverflow.com/questions/12282232/how-do-i-count-unique-values-inside-a-list
-#3 - #2 votes/#1 total 
-#4 - #3 * #2
-#5 - max total
+    voter_id = []
+    county = []
+    candidate = []
+
+    for row in csvreader:
+      voter_id.append(row[0])
+      county.append(row[1])
+      candidate.append(row[2])
+
+    length = len(voter_id)
+    print(length)
