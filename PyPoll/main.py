@@ -29,13 +29,13 @@ with open(election_data) as csvfile:
         voter_dictionary[name] = 1
       else:
         voter_dictionary[name] += 1
-    
+    #print(voter_dictionary)
 
     for cand in voter_dictionary.items():
       print(cand[0])
       print(str(cand[1]))
       print(str((cand[1]/length) * 100))
-  
+#calculate winner  
     winner = max(voter_dictionary.items(), key=lambda item: item[1])
 
 
@@ -47,3 +47,15 @@ for cand in voter_dictionary.items():
       print((cand[0]) + ": " + (str(cand[1])) + " " + (str((cand[1]/length) * 100)))
 print("----------------------------")
 print("Winner: " + str(winner[0]))
+
+
+f = open("election_data.txt", "w")
+print("Election Results \n")
+print("---------------------------- \n")
+print("Total Votes: " + str(length) + "\n")
+print("---------------------------- \n")
+for cand in voter_dictionary.items():
+    print((cand[0]) + ": " + (str(cand[1])) + " " + (str((cand[1]/length) * 100) + "\n"))
+print("---------------------------- \n")
+print("Winner: " + str(winner[0]) + "\n")
+f.close()
