@@ -48,6 +48,7 @@ with open(budget_data) as csvfile:
     minimum = min(revenue_changes)
     print(minimum)
 
+#print analysis
 print("Financial Analysis")
 print("----------------------------")
 print("Total Months: ", length)
@@ -56,7 +57,7 @@ print("Average Change: ", round(average, 2))
 print("Greatest Increase in Profits: ", maximum)
 print("Greatest Decrease in Profits: ", minimum)
 
-
+#write txt file
 f = open("budget_data.txt", "w")
 f.write("Financial Analyis \n")
 f.write("---------------------------- \n")
