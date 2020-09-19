@@ -22,3 +22,14 @@ with open(election_data) as csvfile:
 
     length = len(voter_id)
     print(length)
+
+    voter_dictionary = {}
+    for name in candidate:
+      if name not in voter_dictionary:
+        voter_dictionary[name] = 1
+      else:
+        voter_dictionary[name] += 1
+    #print(voter_dictionary)
+
+    for cand in voter_dictionary.items():
+      print(cand)
